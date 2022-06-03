@@ -2,11 +2,27 @@ import React, { useState, useEffect } from "react";
 import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
 import ErrorBoundry from "../components/ErrorBoundry";
+import { connect } from "react-redux";
 // import { robots } from "./robots";
 import Scroll from "../components/Scroll";
 import "./App.css";
+import { setSearchField } from "../actions";
 
-function App() {
+const mapStateToProps = (state) => {
+  return {
+    searchField: state.searchField,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSearchChange: (event) => {
+      dispatch(setSearchField(event.target.value));
+    },
+  };
+};
+
+function App(props) {
   // constructor() {
   //   super();
   //   this.state = {
@@ -22,7 +38,7 @@ function App() {
   // }
 
   const [robots, setRobots] = useState([]);
-  const [searchfield, setsearchfield] = useState("");
+  // const [searchfield, setsearchfield] = useState("");
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -30,15 +46,17 @@ function App() {
       .then((response) => response.json())
       .then((users) => setRobots(users));
     // console.log(count);
+    // console.log(store.getState());
   }, []);
 
-  const onSearchChange = (event) => {
-    setsearchfield(event.target.value);
-  };
+  // const onSearchChange = (event) => {
+  //   setsearchfield(event.target.value);
+  // };
 
   // const { robots, searchfield } = this.state;
+  const { searchField, onSearchChange } = props;
   const filteredRobots = robots.filter((robot) => {
-    return robot.name.toLowerCase().includes(searchfield.toLowerCase());
+    return robot.name.toLowerCase().includes(searchField.toLowerCase());
   });
   return !robots.length ? (
     <h1>Loading...</h1>
@@ -56,4 +74,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
