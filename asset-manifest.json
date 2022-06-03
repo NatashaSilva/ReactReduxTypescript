@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ReactReduxTypescript/static/css/main.1833b82d.css",
+    "main.js": "/ReactReduxTypescript/static/js/main.a68d5519.js",
+    "static/js/787.daeec056.chunk.js": "/ReactReduxTypescript/static/js/787.daeec056.chunk.js",
+    "static/media/SEGA.woff": "/ReactReduxTypescript/static/media/SEGA.47b4bfa94ef243af4a5b.woff",
+    "index.html": "/ReactReduxTypescript/index.html",
+    "main.1833b82d.css.map": "/ReactReduxTypescript/static/css/main.1833b82d.css.map",
+    "main.a68d5519.js.map": "/ReactReduxTypescript/static/js/main.a68d5519.js.map",
+    "787.daeec056.chunk.js.map": "/ReactReduxTypescript/static/js/787.daeec056.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1833b82d.css",
+    "static/js/main.a68d5519.js"
+  ]
+}
